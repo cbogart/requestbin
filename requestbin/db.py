@@ -15,6 +15,8 @@ except ImportError, e:
 
 db = klass(bin_ttl)
 
+db.create_bin(False, name="caliper")
+
 def create_bin(private=False):
     return db.create_bin(private)
 
