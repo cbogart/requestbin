@@ -19,6 +19,7 @@ RUN pip install -r /opt/requestbin/requirements.txt \
 
 # the code
 ADD requestbin  /opt/requestbin/requestbin/
+RUN mkdir /requests
 
 EXPOSE 8000
 

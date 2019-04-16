@@ -34,6 +34,8 @@ class RedisStorage():
         key = self._key(bin.name)
         self.redis.set(key, bin.dump())
         self.redis.expireat(key, int(bin.created+self.bin_ttl))
+        with open("/requests/" + bin.name + ".txt", "w+") as f:
+            f.write(request.environ.get('raw') + "\n")
 
         self.redis.setnx(self._request_count_key(), 0)
         self.redis.incr(self._request_count_key())

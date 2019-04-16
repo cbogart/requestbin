@@ -5,8 +5,10 @@ app:
         REDIS_URL: "//redis:6379"
     links:
         - redis
+    volumes:
+        - ./caliper-log-events:/requests
     ports:
-        - "8000:8000"
+        - "8040:8000"
 
 redis:
     image: redis
